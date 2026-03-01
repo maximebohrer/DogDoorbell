@@ -33,7 +33,6 @@ const int samplingPeriod = 50;
 unsigned long samplingTimer = 0;
 
 // Music and LED
-unsigned long musicTimer = 0;
 unsigned long ledTimer = 0;
 bool ledState = 0;
 Tone buzzer1;
@@ -55,20 +54,20 @@ class Music {
     int index2;
     int subindex2;
 
-    int intervalle;    // Length of the unit of time in milliseconds
-    unsigned long timer_musique;
+    int interval;    // Length of the unit of time in milliseconds
+    unsigned long musicTimer;
 
     bool playing;
 
   public:
-    Music(int notes1[], int noteLengths1[], int quantity1, int notes2[], int noteLengths2[], int quantity2, int intervalle) {
+    Music(int notes1[], int noteLengths1[], int quantity1, int notes2[], int noteLengths2[], int quantity2, int interval) {
       this->notes1 = notes1;
       this->noteLengths1 = noteLengths1;
       this->quantity1 = quantity1;
       this->notes2 = notes2;
       this->noteLengths2 = noteLengths2;
       this->quantity2 = quantity2;
-      this->intervalle = intervalle;
+      this->interval = interval;
 
       playing = false;
       index1 = 0;
@@ -78,14 +77,14 @@ class Music {
     }
 
     void play() {
-      if (millis() - timer_musique >= intervalle || !playing) {
-        timer_musique = millis();
+      if (millis() - musicTimer >= interval || !playing) {
+        musicTimer = millis();
 
         if (notes1[index1] > 0 && (subindex1 == 0 || !playing)) { // Call play() only if it's a new note or if the music is resumed (The Tone library handles the timing by itself)
-          buzzer1.play(notes1[index1], (noteLengths1[index1] - subindex1) * intervalle - intervalle / 10); // Subtract a tenth of time unit to have a clear gap between notes
+          buzzer1.play(notes1[index1], (noteLengths1[index1] - subindex1) * interval - interval / 10); // Subtract a tenth of time unit to have a clear gap between notes
         }
         if (notes2[index2] > 0 && (subindex2 == 0 || !playing)) {
-          buzzer2.play(notes2[index2], (noteLengths2[index2] - subindex2) * intervalle - intervalle / 10);
+          buzzer2.play(notes2[index2], (noteLengths2[index2] - subindex2) * interval - interval / 10);
         }
 
         subindex1++;
