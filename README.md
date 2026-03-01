@@ -3,7 +3,7 @@ Dog Doorbell
 
 This project is a capacitive sensor with a buzzer designed to detect when a dog is at the door and signal the owners to open it. Useful if the dog stands against the door to get inside instead of barking. When the dog touches the sensor, the buzzer rings.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xSRR1j4SNbI?si=J0YzGEdDdSo9csVO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Demo video](https://img.youtube.com/vi/xSRR1j4SNbI/0.jpg)](https://www.youtube.com/watch?v=xSRR1j4SNbI)
 
 ![Outside (capacitive sensor)](images/outside.jpg)
 
